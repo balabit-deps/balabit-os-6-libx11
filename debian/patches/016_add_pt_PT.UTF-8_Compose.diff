@@ -1,0 +1,211 @@
+Description: Add compose file for pt_PT.UTF-8 equivalent to pt_BR.UTF-8
+Bug: https://launchpad.net/bugs/518056
+Forwarded: https://bugs.freedesktop.org/90300
+Author: Gunnar Hjalmarsson <gunnarhj@ubuntu.com>
+
+Index: libx11-1.6.3/configure.ac
+===================================================================
+--- libx11-1.6.3.orig/configure.ac
++++ libx11-1.6.3/configure.ac
+@@ -438,7 +438,7 @@ locales="\
+  iso8859-7    iso8859-8   iso8859-9   iso8859-9e   ja           ja.JIS \
+  ja_JP.UTF-8  ja.SJIS     km_KH.UTF-8 ko           koi8-c       koi8-r \
+  koi8-u       ko_KR.UTF-8 microsoft-cp1251         microsoft-cp1255 \
+- microsoft-cp1256         mulelao-1   nokhchi-1    pt_BR.UTF-8  ru_RU.UTF-8 \
++ microsoft-cp1256         mulelao-1   nokhchi-1    pt_BR.UTF-8  pt_PT.UTF-8 ru_RU.UTF-8 \
+  sr_CS.UTF-8  tatar-cyr   th_TH       th_TH.UTF-8  tscii-0      vi_VN.tcvn \
+  vi_VN.viscii zh_CN       zh_CN.gb18030            zh_CN.gbk    zh_CN.UTF-8 \
+  zh_HK.big5   zh_HK.big5hkscs         zh_HK.UTF-8  zh_TW        zh_TW.big5 \
+Index: libx11-1.6.3/nls/compose.dir.pre
+===================================================================
+--- libx11-1.6.3.orig/nls/compose.dir.pre
++++ libx11-1.6.3/nls/compose.dir.pre
+@@ -456,7 +456,7 @@ en_US.UTF-8/Compose:		ph_PH.UTF-8
+ en_US.UTF-8/Compose:		pl_PL.UTF-8
+ en_US.UTF-8/Compose:		pp_AN.UTF-8
+ pt_BR.UTF-8/Compose:		pt_BR.UTF-8
+-en_US.UTF-8/Compose:		pt_PT.UTF-8
++pt_PT.UTF-8/Compose:		pt_PT.UTF-8
+ en_US.UTF-8/Compose:		ro_RO.UTF-8
+ ru_RU.UTF-8/Compose:		ru_RU.UTF-8
+ en_US.UTF-8/Compose:		ru_UA.UTF-8
+Index: libx11-1.6.3/nls/locale.dir.pre
+===================================================================
+--- libx11-1.6.3.orig/nls/locale.dir.pre
++++ libx11-1.6.3/nls/locale.dir.pre
+@@ -458,7 +458,7 @@ en_US.UTF-8/XLC_LOCALE:			ph_PH.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			pl_PL.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			pp_AN.UTF-8
+ pt_BR.UTF-8/XLC_LOCALE:			pt_BR.UTF-8
+-en_US.UTF-8/XLC_LOCALE:			pt_PT.UTF-8
++pt_PT.UTF-8/XLC_LOCALE:			pt_PT.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			ro_RO.UTF-8
+ ru_RU.UTF-8/XLC_LOCALE:			ru_RU.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			ru_UA.UTF-8
+Index: libx11-1.6.3/nls/pt_PT.UTF-8/Compose.pre
+===================================================================
+--- /dev/null
++++ libx11-1.6.3/nls/pt_PT.UTF-8/Compose.pre
+@@ -0,0 +1,3 @@
++include "X11_LOCALEDATADIR/en_US.UTF-8/Compose"
++<dead_acute> <C>	: "Ç" Ccedilla # LATIN CAPITAL LETTER C WITH CEDILLA
++<dead_acute> <c>	: "ç" ccedilla # LATIN SMALL LETTER C WITH CEDILLA
+Index: libx11-1.6.3/nls/pt_PT.UTF-8/XI18N_OBJS
+===================================================================
+--- /dev/null
++++ libx11-1.6.3/nls/pt_PT.UTF-8/XI18N_OBJS
+@@ -0,0 +1,7 @@
++# CATEGORY(XLC|XIM|OM)	SHARED_LIBRARY_NAME	FUNCTION_NAME
++#
++#	XI18N objects table for pt_PT.UTF-8 locale
++#
++XLC	common/xlcUTF8Load	_XlcUtf8Loader	# XLC_open
++XIM	common/ximcp	_XimOpenIM _XimRegisterIMInstantiateCallback  _XimUnRegisterIMInstantiateCallback # XIM_open	XIM_register XIM_unregister
++XOM	common/xomGeneric 	_XomGenericOpenOM	# XOM_open
+Index: libx11-1.6.3/nls/pt_PT.UTF-8/XLC_LOCALE.pre
+===================================================================
+--- /dev/null
++++ libx11-1.6.3/nls/pt_PT.UTF-8/XLC_LOCALE.pre
+@@ -0,0 +1,142 @@
++XCOMM  XLocale Database Sample for pt_PT.UTF-8
++XCOMM
++XCOMM  Based on XLocale Database Sample for en_US.UTF-8
++XCOMM 
++
++XCOMM 
++XCOMM 	XLC_FONTSET category
++XCOMM 
++XLC_FONTSET
++
++on_demand_loading	True
++
++object_name		generic
++
++XCOMM 	fs0 class (7 bit ASCII)
++fs0	{
++	charset	{
++		name	ISO8859-1:GL
++	}
++	font	{
++		primary		ISO8859-1:GL
++		vertical_rotate	all
++	}
++}
++XCOMM	fs1 class (ISO8859 families)
++fs1	{
++	charset	{
++		name	ISO8859-1:GR
++	}
++	font	{
++		primary	ISO8859-1:GR
++	}
++}
++XCOMM 	fs2 class (Kanji)
++fs2	{
++	charset	{
++		name	JISX0208.1983-0:GL
++	}
++	font	{
++		primary	JISX0208.1983-0:GL
++	}
++}
++XCOMM   fs3 class (Korean Character)
++fs3	{
++	charset	{
++		name	KSC5601.1987-0:GL
++	}
++	font	{
++		primary	KSC5601.1987-0:GL
++	}
++}
++XCOMM   fs4 class (Chinese Han Character)
++fs4	{
++	charset	{
++		name	GB2312.1980-0:GL
++	}
++	font	{
++		primary	GB2312.1980-0:GL
++	}
++}
++XCOMM	fs5 class (Half Kana)
++fs5	{
++	charset	{
++		name	JISX0201.1976-0:GR
++	}
++	font	{
++		primary		JISX0201.1976-0:GR
++		vertical_rotate	all
++	}
++}
++XCOMM ISO10646 is last, per Roland Mainz in
++XCOMM http://bugs.freedesktop.org/show_bug.cgi?id=1896
++fs6	{
++	charset	{
++		name	ISO10646-1
++	}
++	font	{
++		primary	ISO10646-1
++	}
++}
++END XLC_FONTSET
++
++XCOMM 
++XCOMM 	XLC_XLOCALE category
++XCOMM 
++XLC_XLOCALE
++
++encoding_name		UTF-8
++mb_cur_max		6
++state_depend_encoding	False
++
++XCOMM	cs0 class
++cs0	{
++	side		GL:Default
++	length		1
++	ct_encoding	ISO8859-1:GL
++}
++
++XCOMM	cs1 class
++cs1     {
++        side            GR:Default
++        length          1
++        ct_encoding     ISO8859-1:GR
++}
++ 
++XCOMM	cs2 class
++cs2	{
++	side		GR
++	length		2
++	ct_encoding	JISX0208.1983-0:GL; JISX0208.1983-0:GR;\
++			JISX0208.1983-1:GL; JISX0208.1983-1:GR
++}
++
++XCOMM	cs3 class
++cs3     {
++        side            GL
++        length          2
++        ct_encoding     KSC5601.1987-0:GL; KSC5601.1987-0:GR;\
++                        KSC5601.1987-1:GL; KSC5601.1987-1:GR
++}
++ 
++XCOMM	cs4 class
++cs4     {
++        side            GR
++        length          2
++        ct_encoding     GB2312.1980-0:GL; GB2312.1980-0:GR
++}
++ 
++XCOMM	cs5 class
++cs5	{
++	side		GR
++	length		1
++	ct_encoding	JISX0201.1976-0:GR
++}
++
++XCOMM	cs6 class
++cs6	{
++	side		none
++	ct_encoding	ISO10646-1
++}
++
++END XLC_XLOCALE
