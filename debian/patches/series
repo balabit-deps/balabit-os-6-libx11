@@ -4,3 +4,8 @@
 009_remove_th_Compose.diff
 015_russian_locale_alias.diff
 016_add_pt_PT.UTF-8_Compose.diff
+CVE-2016-7942.patch
+CVE-2016-7943.patch
+CVE-2018-14598.patch
+CVE-2018-14599.patch
+CVE-2018-14600.patch

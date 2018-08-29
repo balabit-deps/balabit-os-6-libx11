@@ -1,3 +1,26 @@
+libx11 (2:1.6.3-1ubuntu2.1) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: Out-of-bounds read
+    - debian/patches/CVE-2016-7942.patch: fix in src/GetImage.c.
+    - CVE-2016-7942
+  * SECURITY UPDATE: Out-of-bounds read
+    - debian/patches/CVE-2016-7943.patch: fix in src/FontNames.c,
+      src/ListExt.c, src/ModMap.c.
+    - CVE-2016-7943
+  * SECURITY UPDATE: Denial of service
+    - debian/patches/CVE-2018-14598.patch: fix in src/GetFPath.c,
+      src/ListExt.c.
+    - CVE-2018-14598
+  * SECURITY UPDATE: Denial of service
+    - debian/patches/CVE-2018-14599.patch: fix in src/FontNames.c,
+      src/GetFPath.c, src/ListExt.c.
+    - CVE-2018-14599
+  * SECURITY UPDATE: Denial of service
+    - debian/patches/CVE-2018-14600.patch: fix in src/GetFPath.
+    - CVE-2018-14600
+
+ -- Leonidas S. Barbosa <leo.barbosa@canonical.com>  Wed, 29 Aug 2018 17:04:57 -0300
+
 libx11 (2:1.6.3-1ubuntu2) wily; urgency=medium
 
   * debian/patches/016_add_pt_PT.UTF-8_Compose.diff:
